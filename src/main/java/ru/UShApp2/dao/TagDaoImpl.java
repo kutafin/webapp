@@ -1,14 +1,16 @@
 package ru.UShApp2.dao;
 
 
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 import ru.UShApp2.model.Tag;
-import org.hibernate.Criteria;
 
 import java.util.List;
 
+@Repository
 public class TagDaoImpl implements TagDao {
 
     SessionFactory sessionFactory;
@@ -36,7 +38,7 @@ public class TagDaoImpl implements TagDao {
     @Override
     @SuppressWarnings("uncheked")
     public Tag save(Tag tag) {
-        return(Tag) getSession().save(tag);
+        return (Tag) getSession().save(tag);
     }
 
     @Override
@@ -54,6 +56,4 @@ public class TagDaoImpl implements TagDao {
                 .add(Restrictions.like("tagname", tagname));
         return (Tag) cr.uniqueResult();
     }
-
-
 }

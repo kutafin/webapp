@@ -1,35 +1,35 @@
-CREATE TABLE shorturl(
-  idUrl INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  url VARCHAR(255) NOT NULL,
-  shortUrl VARCHAR(45) NOT NULL,
+CREATE TABLE shorturl (
+  idUrl       INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  url         VARCHAR(255) NOT NULL,
+  shortUrl    VARCHAR(45)  NOT NULL,
   description VARCHAR(255),
-  views INT,
-  id INT,
-  idTag INT
+  views       INT,
+  id          INT,
+  idTag       INT
 );
 
-CREATE TABLE roles(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE roles (
+  id   INT         NOT NULL AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(45) NOT NULL
 );
 
-CREATE TABLE users(
-  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(45) NOT NULL,
+CREATE TABLE users (
+  id       INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(45)  NOT NULL,
   password VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE tags(
-  idTag INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE tags (
+  idTag   INT          NOT NULL AUTO_INCREMENT PRIMARY KEY,
   tagname VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE user_roles(
-  user_id INT NOT NUll,
+CREATE TABLE user_roles (
+  user_id INT NOT NULL,
   role_id INT NOT NULL,
   UNIQUE (user_id, role_id),
-  FOREIGN KEY(user_id) REFERENCES users(id),
-  FOREIGN KEY(role_id) REFERENCES roles(id)
+  FOREIGN KEY (user_id) REFERENCES users (id),
+  FOREIGN KEY (role_id) REFERENCES roles (id)
 );
 INSERT INTO users VALUES (1, 'webadmin', '$2a$11$owR7RKuWOXtVzBFEMtjWeuvMHKElTaZFt.X6iISliglHLFsEMnXre');
 

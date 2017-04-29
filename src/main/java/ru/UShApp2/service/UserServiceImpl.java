@@ -1,12 +1,12 @@
 package ru.UShApp2.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 import ru.UShApp2.dao.RoleDao;
 import ru.UShApp2.dao.UserDao;
 import ru.UShApp2.model.Role;
 import ru.UShApp2.model.User;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,14 +14,15 @@ import java.util.Set;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserDao userDao;
 
-    @Autowired
     private RoleDao roleDao;
 
-    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    @Autowired
+    public UserServiceImpl() {
+    }
 
     @Override
     public void save(User user) {

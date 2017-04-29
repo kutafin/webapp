@@ -1,8 +1,5 @@
 package ru.UShApp2.service;
 
-import ru.UShApp2.dao.UserDao;
-import ru.UShApp2.model.Role;
-import ru.UShApp2.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -10,6 +7,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
+import ru.UShApp2.dao.UserDao;
+import ru.UShApp2.model.Role;
+import ru.UShApp2.model.User;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,8 +17,12 @@ import java.util.Set;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    @Autowired
+
     private UserDao userDao;
+
+    @Autowired
+    public UserDetailsServiceImpl() {
+    }
 
     @Override
     @Transactional(readOnly = true)

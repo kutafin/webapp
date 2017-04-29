@@ -1,19 +1,23 @@
 package ru.UShApp2.validator;
 
-import ru.UShApp2.model.User;
-import ru.UShApp2.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+import ru.UShApp2.model.User;
+import ru.UShApp2.service.UserService;
 
 
 @Component
 public class UserValidator implements Validator {
 
-    @Autowired
+
     private UserService userService;
+
+    @Autowired
+    public UserValidator() {
+    }
 
     @Override
     public boolean supports(Class<?> aClass) {
