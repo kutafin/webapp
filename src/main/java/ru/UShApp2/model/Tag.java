@@ -10,7 +10,7 @@ public class Tag {
     @Column(name = "idTag")
     private int idTag;
 
-    @Column (name = "tagname")
+    @Column(name = "tagname")
     private String tagname;
 
 

@@ -6,11 +6,11 @@ import java.util.List;
 
 public interface TagDao {
 
-      Tag save(Tag tag);
+    Tag save(Tag tag);
 
-      Tag findById(int idTag);
+    Tag findById(int idTag);
 
-      Tag findByName(String tagname);
+    Tag findByName(String tagname);
 
-      List<Tag> listTag();
+    List<Tag> listTag();
 }

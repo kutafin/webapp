@@ -3,16 +3,14 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Регистрация</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
 </head>
-
 <body>
 <table>
     <thead>
@@ -51,7 +49,9 @@
     </div>
     </spring:bind>
     <tr>
-        <td><button type="submit">Зарегистрироваться</button></td>
+        <td>
+            <button type="submit">Зарегистрироваться</button>
+        </td>
     </tr>
     </form:form>
 </body>

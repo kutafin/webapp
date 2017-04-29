@@ -2,8 +2,6 @@ package ru.UShApp2.model;
 
 
 import javax.persistence.*;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "shorturl")
@@ -18,7 +16,7 @@ public class ShUrl {
     private String shortUrl;
     @Column(name = "description")
     private String description;
-    @Column (name = "views")
+    @Column(name = "views")
     private int views;
 
     public User getUser() {
@@ -28,13 +26,15 @@ public class ShUrl {
     public void setUser(User user) {
         this.user = user;
     }
-    @JoinColumn(name = "id",referencedColumnName = "id")
+
+    @JoinColumn(name = "id", referencedColumnName = "id")
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
 
-    @JoinColumn(name = "idTag",referencedColumnName = "idTag")
-    @ManyToOne(optional = false,cascade = CascadeType.ALL)
+    @JoinColumn(name = "idTag", referencedColumnName = "idTag")
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Tag tag;
+
     public Tag getTag() {
         return tag;
     }
@@ -49,9 +49,9 @@ public class ShUrl {
     public ShUrl(int idUrl, String url, String shortUrl, String description, int views, User user, Tag tag) {
         this.idUrl = idUrl;
         this.url = url;
-        this.shortUrl = this.shortUrl;
+        this.shortUrl = shortUrl;
         this.description = description;
-        this.views = 0;
+        this.views = views;
         this.user = user;
         this.tag = tag;
     }
@@ -73,11 +73,11 @@ public class ShUrl {
     }
 
     public String getShortUrl() {
-        return "USh/"+String.valueOf(idUrl);
+        return "USh/" + String.valueOf(idUrl);
     }
 
     public void setShortUrl(String shortUrl) {
-        String s=shortUrl.replaceAll("Ush/","");
+        String s = shortUrl.replaceAll("Ush/", "");
         this.shortUrl = s;
     }
 

@@ -30,15 +30,5 @@
         <th><a href="<c:url value="byTag/${shUrl.tag.tagname}"/>  "><label>${shUrl.tag.tagname}</label></a></th>
     </tr>
 </table>
-<script type='text/javascript'>
-    var javascriptVariable = "${shUrl.views}";
-    javascriptVariable+1;
-    var count=0;
-    function inc(aaaa) {
-        javascriptVariable=javascriptVariable+1;
-        aaaa++;
-        console.log(javascriptVariable);
-    };
-</script>
 </body>
 </html>

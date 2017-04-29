@@ -32,29 +32,22 @@
     </bean>
 
 
-<bean id="hibernate4SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-    <property name="dataSource" ref="dataSource"/>
-    <property name="annotatedClasses">
-        <list>
-            <value>ru.UShApp2.model.ShUrl</value>
-            <value>ru.UShApp2.model.Tag</value>
-            <value>ru.UShApp2.model.User</value>
-            <value>ru.UShApp2.model.Role</value>
-                   </list>
-    </property>
-    <property name="hibernateProperties">
-        <props>
-            <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
-            <prop key="hibernate.show_sql">true</prop>
-        </props>
-    </property>
-</bean>
-
-    <bean id="ShUrlDao" class="ru.UShApp2.dao.ShUrlDaoImpl">
-        <property name="sessionFactory" ref="hibernate4SessionFactory"/>
-    </bean>
-    <bean id="TagDao" class="ru.UShApp2.dao.TagDaoImpl">
-        <property name="sessionFactory" ref="hibernate4SessionFactory"/>
+    <bean id="hibernate4SessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>ru.UShApp2.model.ShUrl</value>
+                <value>ru.UShApp2.model.Tag</value>
+                <value>ru.UShApp2.model.User</value>
+                <value>ru.UShApp2.model.Role</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+            </props>
+        </property>
     </bean>
 
     <bean id="transactionManager"
